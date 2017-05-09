@@ -15,7 +15,9 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
+import hrdo_safs_report.views as views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^test/$', views.test),
 ]
