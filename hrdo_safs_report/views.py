@@ -5,7 +5,6 @@ from django.shortcuts import render
 from django.http import HttpResponse, JsonResponse
 from .models import *
 from django.db import connection
-import json
 # Create your views here.
 
 
@@ -69,17 +68,16 @@ def test(request):
     if query:
         with connection.cursor() as c:
             c.execute(query)
-            output = dictfetchall(c)
-            print output
-        return JsonResponse(output, safe=False)
+            output = build_dict(str(n)+'_most_common', c)
+        return JsonResponse(output)
 
     else:
         return HttpResponse("No output")
 
 
-def dictfetchall(cursor):
-    columns = [col[0] for col in cursor.description]
-    return [
-        dict(zip(columns, row))
-        for row in cursor.fetchall()
-    ]
+def build_dict(querytype, cursor):
+    data = dict()
+    data['query'] = querytype
+    data['cols'] = [col[0] for col in cursor.description]
+    data['rows'] = [row for row in cursor.fetchall()]
+    return data
