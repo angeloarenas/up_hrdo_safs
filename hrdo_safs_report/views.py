@@ -5,6 +5,8 @@ from django.shortcuts import render
 from django.http import HttpResponse, JsonResponse
 from .models import *
 from django.db import connection
+from django.contrib import messages
+from django.template.loader import render_to_string
 # Create your views here.
 
 
@@ -58,21 +60,29 @@ def test(request):
                 'GROUP BY leavetype, age;'
 
     elif n == '9':
-        query = None
+        query = 'SELECT' # Test for invalid query
 
     elif n == '10':
         query = 'SELECT leavetype, rsostatus, COUNT(id) AS count ' \
                 'FROM transactions ' \
                 'GROUP BY leavetype, rsostatus;'
 
-    if query:
-        with connection.cursor() as c:
-            c.execute(query)
-            output = build_dict(str(n)+'_most_common', c)
-        return JsonResponse(output)
+    output = dict()
 
+    if not query:
+        messages.error(request, "Empty query")
     else:
-        return HttpResponse("No output")
+        with connection.cursor() as c:
+            try:
+                c.execute(query)
+                output = build_dict(str(n)+'_most_common', c)
+                messages.success(request, "Query success")
+            except:
+                messages.error(request, "Invalid query")
+
+    msg = render_to_string('messages.html', request=request)
+    output['msg'] = msg
+    return JsonResponse(output)
 
 
 def build_dict(querytype, cursor):
