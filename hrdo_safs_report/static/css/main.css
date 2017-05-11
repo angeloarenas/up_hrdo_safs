@@ -1,0 +1,60 @@
+
+/*Distributions Dropdown*/
+.nav-tabs a{
+  color:d95c5c;
+}
+
+.dropdown-menu {
+  width: 100%;
+
+}
+
+.dropdown-menu li a {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.drop-dist{
+ width: 100%;
+}
+
+.btn-dropdown{
+  margin-top: 20px;
+  text-align: left;
+}
+
+.caret-right{
+  float: right;
+  margin: 10px 0;
+}
+
+.panel-heading{
+  padding-bottom: 20px;
+}
+
+.submit-btn{
+  margin-top: 20px;
+}
+
+.table-overflow {
+    overflow-x: auto;
+}
+
+.btn-custom{
+  background-color: d95c5c;
+  border-color: b93535;
+  color: ffffff;
+}
+
+.btn-custom.focus, .btn-custom:focus{
+  background-color: d95c5c;
+  border-color: b93535;
+  color: ffffff;
+}
+
+.btn-custom.hover, .btn-custom:hover{
+  background-color: b93535;
+  border-color: 921717;
+  color: ffffff;
+}

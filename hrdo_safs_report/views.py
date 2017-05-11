@@ -10,7 +10,7 @@ from django.template.loader import render_to_string
 # Create your views here.
 
 
-def test(request):
+def query(request):
     query = None
     query_type = None
 
@@ -82,6 +82,9 @@ def test(request):
     output['msg'] = msg
     return JsonResponse(output)
 
+
+def page(request):
+    return render(request, 'main.html')
 
 def build_dict(query_type, cursor):
     data = dict()

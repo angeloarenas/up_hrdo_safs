@@ -19,5 +19,6 @@ import hrdo_safs_report.views as views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^test/$', views.test),
+    url(r'^query/$', views.query),
+    url(r'^$', views.page),
 ]
