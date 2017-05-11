@@ -1,8 +1,22 @@
 $(document).ready(() => {
   getCommonData();
+  $("#tableQueryName").hide();
   $("#queryOption").change(() => {
     console.log("Query Select option changed");
     getCommonData();
+  });
+  $("#querySubmit").click(() => {
+    $("#tableQueryName").show();
+    query = $("#query").val();
+    $.ajax({
+      url: "/query/",
+      method: "GET",
+      data: { "q": query },
+    }).done((result) => {
+      createTable(result, "tableQuery");
+    }).fail((err) => {
+      console.log(err);
+    });
   });
 });
 

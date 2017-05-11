@@ -58,3 +58,7 @@
   border-color: 921717;
   color: ffffff;
 }
+
+.next-table {
+    display: none;
+}

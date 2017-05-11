@@ -78,7 +78,7 @@
                       <div class="form-group">
                         <label for="query"><h2>Input SQL Query:</h2></label>
                         <textarea class="form-control" rows="5" id="query"></textarea>
-                        <button class="btn btn-custom btn-block submit-btn">Submit Query</button>
+                        <button id="querySubmit" class="btn btn-custom btn-block submit-btn">Submit Query</button>
                       </div>
                     </div>
                   </div>
@@ -92,7 +92,7 @@
                   <!-- Table Name -->
                   <div class="row">
                     <div class="col-md-10 col-md-offset-1">
-                      <h2>Distribution by Type of Application of Year</h2>
+                      <h2 id="tableQueryName">Custom SQL Query Result</h2>
                     </div>
                   </div>
                   
@@ -100,16 +100,6 @@
                   <div class="row">
                     <div class="col-md-10 col-md-offset-1 table-overflow">
                       <table id="tableQuery" class="table table-striped table-bordered ">
-                        <thead><tr>
-                            <th>Column 1</th>
-                            <th>Column 2</th>
-                            <th>Column 3</th>
-                          </tr></thead>
-                          <tbody><tr>
-                              <td>1</td>
-                              <td>2</td>
-                              <td>3</td>
-                            </tr></tbody>
                       </table>
                     </div>
                   </div>
