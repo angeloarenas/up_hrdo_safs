@@ -29,6 +29,7 @@ function getCommonData() {
     method: "GET",
     data: { "n": data },
   }).done((result) => {
+    console.log(result.msg);
     createTable(result, "tableCommon");
   }).fail((err) => {
     console.log(err);
@@ -41,7 +42,7 @@ function createTable(data, tableId) {
 
   table_html = "<thead><tr>";
   for(column of data.cols) {
-    table_html += "<th>" + column + "</th>";
+    table_html += "<th>" + column.charAt(0).toUpperCase() + column.slice(1) + "</th>";
   }
   table_html += "</tr></thead>";
 

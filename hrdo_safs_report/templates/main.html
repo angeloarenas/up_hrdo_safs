@@ -17,31 +17,30 @@
             <li class ="active"><a data-toggle="tab" href="#home">Generate Distributions</a></li>
             <li><a a data-toggle="tab" href="#sql_query">Manual SQL Query</a></li>
           </ul>
-          
+
           <!-- Content -->
           <div class="tab-content">
-            
+
             <!-- Generate Distributions Page -->
             <div id="home" class="tab-pane fade in active">
               <div class="panel panel-default">
-                
+
                 <!-- Distributions Dropdown -->
                 <div class="panel-heading">
                   <div class="row">
                     <div class="col-md-10 col-md-offset-1">
                       <select class="btn btn-default btn-lg btn-dropdown  drop-dist" type="button" id="queryOption" name="queryOption">
                         ...
-                        <option value=1>Distribution by Type of Application by Year</a></li>
-                    <option value=2>Distribution by Type of Application by Sex</a></li>
-                <option value=3>Distribution by Type of Application by Designation</a></li>
-            <option value=4>Distribution by Type of Application by Location</a></li>
-        <option value=5>Distribution by Type of Application by Period </a></li>
-    <option value=6>Distribution by Type of Application by Designation</a></li>
-<option value=7>Distribution by Type of Application by Employment Classification </a></li>
-                        <option value=8>Distribution by Type of Application by Age</a></li>
-                    <option value=9>Distribution by Type of Application by Degree</a></li>
-                <option value=10>Distribution by Type of Application by Status of Completion</a></li>
-            <span class="caret caret-right"></span>
+                        <option value="1">Distribution by Type of Application by Year</option>
+                        <option value="2">Distribution by Type of Application by Sex</option>
+                        <option value="3">Distribution by Type of Application by Designation</option>
+                        <option value="4">Distribution by Type of Application by Location</option>
+                        <option value="6.1">Distribution by Type of Application by Unit</option>
+                        <option value="6.2">Distribution by Type of Application by College</option>
+                        <option value="7">Distribution by Type of Application by Employment Classification</option>
+                        <option value="8">Distribution by Type of Application by Age</option>
+                        <option value="10">Distribution by Type of Application by Status of Completion</option>
+                        <span class="caret caret-right"></span>
                       </select>
                     </div>
                   </div>
@@ -56,7 +55,7 @@
                       <h2>Distribution by Type of Application of Year</h2>
                     </div>
                   </div>
-                  
+
                   <!-- Actual Table -->
                   <div class="row">
                     <div class="col-md-10 col-md-offset-1 table-overflow">
@@ -83,19 +82,17 @@
                     </div>
                   </div>
                 </div>
-                
-                
-                
+
                 <!-- Table -->
                 <div class="panel-body">
-                  
+
                   <!-- Table Name -->
                   <div class="row">
                     <div class="col-md-10 col-md-offset-1">
                       <h2 id="tableQueryName">Custom SQL Query Result</h2>
                     </div>
                   </div>
-                  
+
                   <!-- Actual Table -->
                   <div class="row">
                     <div class="col-md-10 col-md-offset-1 table-overflow">
@@ -103,18 +100,18 @@
                       </table>
                     </div>
                   </div>
-                  
+
                 </div>
-                
+
               </div>
             </div>
-            
+
           </div>
 
         </div>
-        
+
       </div>
-      
+
     </div>
   </body>
 </html>
