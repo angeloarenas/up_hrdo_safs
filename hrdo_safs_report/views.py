@@ -3,7 +3,6 @@ from __future__ import unicode_literals
 
 from django.shortcuts import render
 from django.http import HttpResponse, JsonResponse
-from .models import *
 from django.db import connection
 from django.contrib import messages
 from django.template.loader import render_to_string
@@ -84,7 +83,34 @@ def query(request):
 
 
 def page(request):
-    return render(request, 'main.html')
+    notifs_query = """SELECT employeenumber, firstname, lastname, primaryemail, enddate, reportforduty, \
+
+                      (CASE 
+                      WHEN DATEDIFF(enddate, NOW())<=0 THEN 'Leave ended'
+                      ELSE 'Leave ongoing' 
+                      END) AS status,
+
+
+                      (CASE 
+                      WHEN DATEDIFF(enddate, NOW())<=30 AND DATEDIFF(enddate, NOW())>0 
+                            THEN CONCAT('Reminder: Your leave is about to end in ', DATEDIFF(enddate, NOW()), ' days')
+                      WHEN DATEDIFF(enddate, NOW())<=0 
+                            THEN CONCAT('Reminder: Your leave has ended. You are expected to report back on duty by ', reportforduty)
+                      END) AS message
+
+                      FROM transactions JOIN employees USING(employeenumber) WHERE DATEDIFF(enddate, NOW()) < 30"""
+    with connection.cursor() as c:
+        output = dict()
+        try:
+            c.execute(notifs_query)
+            output = build_dict("notifs", c)
+        except:
+            pass
+    context = {
+        'notifications': output
+    }
+
+    return render(request, 'main.html', context)
 
 def build_dict(query_type, cursor):
     data = dict()

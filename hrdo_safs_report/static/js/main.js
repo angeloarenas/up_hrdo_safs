@@ -3,6 +3,7 @@ $(document).ready(() => {
   $("#tableQueryName").hide();
   $("#queryOption").change(() => {
     console.log("Query Select option changed");
+    $("#distTableName").text($("#queryOption").find(":selected").text());
     getCommonData();
   });
   $("#querySubmit").click(() => {
@@ -23,13 +24,11 @@ $(document).ready(() => {
 
 function getCommonData() {
   let data = $("#queryOption").find(":selected").val();
-  console.log("Value of query", data);
   $.ajax({
     url: "/query/",
     method: "GET",
     data: { "n": data },
   }).done((result) => {
-    console.log(result.msg);
     createTable(result, "tableCommon");
   }).fail((err) => {
     console.log(err);
@@ -38,7 +37,6 @@ function getCommonData() {
 
 function createTable(data, tableId) {
   console.log("Creating Table");
-  console.log(data);
 
   table_html = "<thead><tr>";
   for(column of data.cols) {
