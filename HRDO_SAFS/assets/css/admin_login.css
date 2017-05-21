@@ -1,0 +1,48 @@
+body {
+  background: url('../images/sunflower.png') fixed;
+  background-size: cover;
+  padding: 0;
+  margin: 0;
+}
+
+@media (min-height: 320px) {
+.ui.footer.form-page { /* Increased specificity for SO snippet priority */
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  }
+}
+
+.form-holder {
+  background: rgba(0,0,0,0.2);
+  margin-top: 30px;
+  border-radius: 3px;
+  clear: both;
+}
+
+.form-head {
+  font-size: 40px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #fff;
+  margin: 30px auto 10px auto;
+}
+
+.logo {
+  margin-top: 180px;
+}
+
+#link {
+  color: #FFFFFF;
+  background: none;
+  border: none;
+}
+
+.ui.segment {
+  background: rgba(255,0,0,0.2);
+  width: 435px;
+  margin-left: 465px;
+  margin-top: 20px;
+  clear: both;
+  color: #FFFFFF;
+}
