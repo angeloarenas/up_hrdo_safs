@@ -98,7 +98,8 @@ def page(request):
                             THEN CONCAT('Reminder: Your leave has ended. You are expected to report back on duty by ', reportforduty)
                       END) AS message
 
-                      FROM transactions JOIN employees USING(employeenumber) WHERE DATEDIFF(enddate, NOW()) < 30"""
+                      FROM transactions JOIN employees USING(employeenumber) WHERE DATEDIFF(enddate, NOW()) < 30
+                      ORDER BY enddate DESC"""
     with connection.cursor() as c:
         output = dict()
         try:
