@@ -3,10 +3,10 @@ This is the git repository for the HRDO safs report module.
 # Environment setup
 
 ## Mysql
-
-* Create database named "hrdodb" on mysql server.
-* Create user named `hrdo_user` with password `hrdo_password`
-* Grant all privileges to `hrdo_user` on database `hrdb`
+* The setup now uses the database from the HRDO_SAFS PHP project found at the root. 
+[//]: # (* Create database named "hrdodb" on mysql server.)
+[//]: # (* Create user named `hrdo_user` with password `hrdo_password`)
+[//]: # (* Grant all privileges to `hrdo_user` on database `hrdb`)
 
 ## Django
 
